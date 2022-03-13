@@ -1,0 +1,394 @@
+:root {
+    --color-black: #000;
+    --color-white: #FFF;
+    --color-Silver: #c8c8c8;
+    --color-Silver1: #3e3e3e;
+    --color-Silver2: #a5a5a5;
+    --color-grey: #1f1f1f;
+    --font1: 40px;
+    --font2: 25px;
+    --font3: 40px;
+    --font4: 18px;
+    --font5: 24px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-Silver2);
+    background-image: url("../assets/img/wood.jpeg");
+    font-family: 'Homemade Apple', cursive;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+    color: #010217;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/**=== header ===**/
+
+
+/**=== main ===**/
+
+.notebook {
+    max-width: 1024px;
+    min-height: 1100px;
+    margin: 0 auto;
+    background-image: url('../assets/img/notebook.png');
+    background-repeat: no-repeat;
+    background-size: 1024px 1100px;
+    background-position: center;
+    padding-top: 100px;
+}
+
+.header {
+    font-size: var(--font1);
+    padding-top: 1px;
+    padding-bottom: 50px;
+}
+
+.content {
+    display: flex;
+    font-family: 'Rock Salt', cursive;
+    color: #010217;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#area {
+    width: 302px;
+    background-image: url("../assets/img/field.png");
+    background-repeat: no-repeat;
+    background-size: 300px auto;
+    background-position: center;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.currentPlayer {
+    width: 600px;
+    font-size: var(--font2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    display: inline-block;
+    font-size: 26px;
+    vertical-align: middle;
+    transition: 0.1s;
+    color: rgba(255, 255, 255, 0.0);
+    cursor: url("https://rolling-scopes-school.github.io/maxim-kolmykov-JSFEPRESCHOOL/portfolio/tic-tac-toe/assets/img/pen.cur"), pointer;
+}
+
+.cell:hover {
+    height: 100px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.restart-button {
+    background-image: url('../assets/img/eraser.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 90px;
+    transition: 0.5s;
+    margin-top: 50px;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font3);
+    padding-top: 22px;
+    padding-left: 65px;
+}
+
+.restart-button:hover,
+.restart-button:focus {
+    transform: translatey(-1.65em) rotate(20deg);
+    box-shadow: 0.1em 1.1em 0.5em -0.4em rgba(31, 31, 31, 0.4);
+    transition: 0.5s;
+}
+
+.restart-button:active {
+    transform: translatey(-2.65em);
+    box-shadow: 0.1em 1.1em 0.5em -0.4em rgba(31, 31, 31, 0.4);
+    animation: erase 0.5s infinite ease-in-out;
+    transition: 0.5s;
+}
+
+@keyframes erase {
+    0% {
+        transform: rotate(20deg) translatey(-2.65em)
+    }
+    50% {
+        transform: rotate(50deg) translatey(-3.65em)
+    }
+    80% {
+        transform: rotate(30deg) translatey(-2.85em)
+    }
+    100% {
+        transform: rotate(20deg) translatey(-2.65em)
+    }
+}
+
+.win-modal {
+    display: none;
+    position: absolute;
+    width: 319px;
+    height: 448px;
+    margin: 0 auto;
+    background-image: url('../assets/img/modal.png');
+    background-repeat: no-repeat;
+    background-size: 319px 448px;
+    background-position: center;
+    transition: 0.10s;
+    margin-top: 80px;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+
+.win-modal.active {
+    display: block;
+}
+
+.winner {
+    margin-top: 100px;
+    font-size: var(--font4);
+    text-align: center;
+}
+
+.winner-picture {
+    padding-top: 30px;
+    padding-left: 100px;
+}
+
+.ok-button {
+    margin-top: 60px;
+    margin-left: 100px;
+    width: 90px;
+    height: 50px;
+    background-color: transparent;
+    font-size: var(--font2);
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.ok-button:hover {
+    filter: invert(14%) sepia(23%) saturate(1269%) hue-rotate(107deg) brightness(93%) contrast(99%);
+    border: 2px solid;
+    border-radius: 15px;
+}
+
+
+/* .scores-modal {
+       display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    transition: 0.5s; 
+} */
+
+
+/* .scores-modal.active {} */
+
+.game-scores-button {
+    transition: 0.3s;
+}
+
+.game-scores-button:hover {
+    filter: invert(14%) sepia(23%) saturate(1269%) hue-rotate(107deg) brightness(93%) contrast(99%);
+}
+
+.game-scores-button {
+    margin-top: 20px;
+    text-align: center;
+    font-size: var(--font5);
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+
+.game-scores-button.active {
+    display: none;
+}
+
+.scores-list {
+    display: none;
+    position: absolute;
+    width: 319px;
+    height: 448px;
+    margin: 0 auto;
+    background-image: url('../assets/img/modal.png');
+    background-repeat: no-repeat;
+    background-size: 319px 448px;
+    background-position: center;
+    transition: .10s;
+    margin-top: -490px;
+    margin-left: -145px;
+    padding-top: 75px;
+    padding-left: 90px;
+    z-index: 10;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+
+.scores-list.active {
+    display: block;
+}
+
+.close-button {
+    display: none;
+    z-index: 100;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    width: 90px;
+    height: 50px;
+    background-color: transparent;
+    font-size: var(--font2);
+    border: none;
+    transition: 0.3s;
+    position: absolute;
+    margin-top: -210px;
+    margin-left: -40px;
+}
+
+.close-button.active {
+    display: block;
+}
+
+.close-button.active:hover {
+    display: block;
+    filter: invert(14%) sepia(23%) saturate(1269%) hue-rotate(107deg) brightness(93%) contrast(99%);
+}
+
+.cross {
+    height: 100px;
+    width: 100px;
+    background: url('../assets/img/cross.png') 100px 0px;
+    animation: play 0.7s steps(12) forwards, step 1s ease-out 1;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    background: url('../assets/img/circle.png') 100px 0px;
+    animation: play 0.7s steps(12) forwards, step 1s ease-out 1;
+}
+
+@keyframes play {
+    100% {
+        background-position: -1100px;
+    }
+}
+
+
+/**=== footer ===**/
+
+.footer__container {
+    background-color: var(--color-grey);
+    background-image: linear-gradient(to top, rgba(62, 62, 62, 0.7), rgba(31, 31, 31, 0.9)), url("../assets/img/fwood.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.footer__item {
+    font-family: 'Homemade Apple', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font3);
+    line-height: 50px;
+    transition: 0.3s;
+    margin: 50px 20px;
+}
+
+.footer__item a:link {
+    color: var(--color-Silver2);
+}
+
+.footer__item a:visited {
+    color: var(--color-Silver2);
+}
+
+.footer__item a:hover {
+    color: var(--color-white);
+}
+
+.footer__item a:active {
+    color: var(--color-white);
+}
+
+.rs_school-item {
+    width: 100px;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    transition: 0.5s;
+    filter: invert(71%) sepia(0%) saturate(420%) hue-rotate(190deg) brightness(96%) contrast(81%);
+    color: var(--color-white);
+}
+
+.rs_school-item:hover {
+    filter: invert(100%);
+}
